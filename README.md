@@ -35,7 +35,7 @@ The primary tool used for this project is Python 3, along with an extensive arra
 - Salary:
         - Mean is greater than median shows its right skewed/ positive sekwed and contains outliers
 
-![Outliers](/Users/ganesh_dhasade/Documents/GitHub/SalaryPredictionProject/outliers.png)
+![Outliers](images/outliers.png)
 
 - As we can see above 3 visualizations in box plot "SALARY" column having outliers
 - Remove the outliers rows from the dataset, as there are only 5 rows out of 1 million datarows we can delete
@@ -44,7 +44,7 @@ The primary tool used for this project is Python 3, along with an extensive arra
 ## Correlation between 2 features to see corelation.
 
 1. Salary Vs JobType
-![Salary Vs JobType](/Users/ganesh_dhasade/Documents/GitHub/SalaryPredictionProject/images/SalaryVSjobtype.png)
+![Salary Vs JobType](images/SalaryVSjobtype.png)
 
 **Observation:**
 - Salary vs Job type : jobtype is highly correlated with salary.
