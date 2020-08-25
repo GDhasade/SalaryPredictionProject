@@ -35,6 +35,7 @@ The primary tool used for this project is Python 3, along with an extensive arra
 - Salary:
         - Mean is greater than median shows its right skewed/ positive sekwed and contains outliers
 
+<img src="images/outliers.png" width="200" height="200">
 ![Outliers](images/outliers.png =250x250)
 
 - As we can see above 3 visualizations in box plot "SALARY" column having outliers
@@ -44,6 +45,8 @@ The primary tool used for this project is Python 3, along with an extensive arra
 ## Correlation between 2 features to see corelation.
 
 1. Salary Vs JobType
+<img src="images/SalaryVSjobtype.png" width="200" height="200">
+
 ![Salary Vs JobType](images/SalaryVSjobtype.png = 250x250)
 
 **Observation:**
