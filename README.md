@@ -23,6 +23,15 @@ The primary tool used for this project is Python 3, along with an extensive arra
 - In both sheets, JobID is common column.
 - Import both files and merge them into one single dataframe with reference to jobID.
 
+### Data Understanding
+- JOB TYPE - Janitor, Manager, CEO, CFO etc.
+- DEGREE - High school, College, Master's etc.
+- MAJOR - Physics, Biology, Maths etc.
+- INDUSTRY - Health, Finance, Oil etc.
+- YEARS_OF_EXPERIENCE - Candidate experience in years
+- MILES_FROM_METROLPOLIS - Distance from the metropolis
+- Every row(job) has a unique JOB_ID, there is a column, COMPANY_ID which is the company identifier.
+
 ### Clean Dataset - Observatios & Outcomes
 - There are zero rows negative values in all numeric columns.
 - Years of Experience can be zero for fresher also Miles From Metropolis can be zero who live in city.
@@ -76,12 +85,83 @@ The primary tool used for this project is Python 3, along with an extensive arra
     - Degree and major
 <img src="images/Correlation.png" height="500">
 
+## Prepare data for modelling.
+- From above observations it is found that all features correlated with salaries.
+- Hence we use all columns for machine learning (except JobID and CompanyID as they are identifier columns).
 
-
-
-
-
+**Handle Categorical Column Values**
+--------- Overall 4 Categorical Columns in dataset ---------
+- There are 8 categories in jobType
+- There are 5 categories in degree
+- There are 9 categories in major
+- There are 7 categories in industry
+- It means total 29 dummies will be created
+- We use sklearn.get_dummies() method and remove one category from each category to avoid dummies trap.
+- Hence, total 25 new features(dummies) will be created.
+- Already there are 6 column out of which 4 categorical and 3 integer
+   - 3 integer columns + 25 dummies
+   - Hence, total 28 features will be there.
+**Data is ready now for machine learning development**
 
 # DEVELOPMENT
 
+**Establish BASELINE model**
+- As XGboost is very popular for regression problem
+- Hence, i am taking XGBoost as base model.
+- Perform 5-fold cross-validation to check RMSE.
+- The basemodel provides **RMSE 432.200** score
+- We try to minimise this base score in future development.
+
+
+**Try below machine learning models**
+- We applied train and test dataset on below machine learning models we get RMSE.
+- LinearRegression :         **386.860**
+- RandomForestRegressor:     **374.888**
+- Lasso:                     **397.296**
+- GaussianNB:                **9863.773**
+- DecisionTreeRegressor:     **439.996**
+- GradientBoostingRegressor: **366.328**
+
+_Here **GRADIENT BOOSTING REGRESSOR** give good performance as compare to others (Best Model)**
+
+**Perform HyperParameter Tunning**
+**Step 1. Randomize Search CV:**
+- Provide below best parameters for dataset. We train model with this parameters.
+
+- _GradientBoostingRegressor(learning_rate=0.05, max_depth=5, max_features='sqrt',
+                          n_estimators=1100, subsample=1)
+- After training model we found **RMSE 358.97**
+
+**Step 2. Grid Search CV:**
+- Update Randomize Search CV parameter and applied to GridSearchCV and train model.
+- _GridSearchCV(cv=5, estimator=GradientBoostingRegressor(), n_jobs=-1,
+             _param_grid={'learning_rate': [0.05], 'max_depth': [5],
+                         _'max_features': ['sqrt'],
+                         _'n_estimators': [900, 1000, 1100, 1200, 1300],
+                         _'subsample': [1]},
+             _verbose=2)
+- After training model we found **RMSE 358.54**
+
+- We get our best model with RMSE score of 358.
+- Now we are ready to move next step of deployment the model.
+
+
 # DEPLOYMENT
+- For deployment of model i performed below steps.
+    - 1. Implement an application using python FLASK framework to build UI.
+    - 2. Deploy on the Heroku cloud platform.
+    
+- Structrue of application and deployment requirements.
+    - [Artifacts/Folder] (https://github.com/GDhasade/SalaryPredictionMLProject/tree/master/artifacts)
+        - model_code.ipynb : python code notebook 
+        - model pickle file
+    - [Template/Folder] (https://github.com/GDhasade/SalaryPredictionMLProject/tree/master/templates)
+        - index.html file for Frontend
+        - .css file for UI formating
+    - [Python Server] (https://github.com/GDhasade/SalaryPredictionMLProject)
+        - app.py : The python Flask application work as **server** handle all input and output between UI and model.
+        - Requirement.txt: Contains all packages used for modelling. File require while deploying application on cloud.
+
+
+
+
