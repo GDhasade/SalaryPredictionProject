@@ -35,7 +35,7 @@ The primary tool used for this project is Python 3, along with an extensive arra
 - Salary:
         - Mean is greater than median shows its right skewed/ positive sekwed and contains outliers
 
-![outliers_plot](/Users/ganesh_dhasade/Desktop/outliers.png)
+<img src="/Users/ganesh_dhasade/Desktop/outliers.png">
 
 
 As we can see above 3 visualizations in box plot "SALARY" column having outliers
