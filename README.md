@@ -37,14 +37,18 @@ The primary tool used for this project is Python 3, along with an extensive arra
 
 ![Outliers](/Users/ganesh_dhasade/Documents/GitHub/SalaryPredictionProject/outliers.png)
 
+- As we can see above 3 visualizations in box plot "SALARY" column having outliers
+- Remove the outliers rows from the dataset, as there are only 5 rows out of 1 million datarows we can delete
+- So basically use formula: outside 1.5 times the interquartile range above the upper quartile and below the lower quartile (Q1 - 1.5 IQR or Q3 + 1.5 IQR).
 
-As we can see above 3 visualizations in box plot "SALARY" column having outliers
-Remove the outliers rows from the dataset
-As there are only 5 rows out of 1million datarows we can delete
-refer to get more about formula: https://www.simplypsychology.org/boxplots.html#:~:text=When%20reviewing%20a%20box%20plot,whiskers%20of%20the%20box%20plot.&text=For%20example%2C%20outside%201.5%20times,Q3%20%2B%201.5%20*%20IQR).
-So basically use formula:
-outside 1.5 times the interquartile range above the upper quartile and
-below the lower quartile (Q1 - 1.5 IQR or Q3 + 1.5 IQR).
+## Correlation between 2 features to see corelation.
+
+1. Salary Vs JobType
+![Salary Vs JobType](/Users/ganesh_dhasade/Documents/GitHub/SalaryPredictionProject/images/SalaryVSjobtype.png)
+
+**Observation:**
+- Salary vs Job type : jobtype is highly correlated with salary.
+- As jobtype or position is increase salary is increase
 
 # DEVELOPMENT
 
