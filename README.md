@@ -36,7 +36,6 @@ The primary tool used for this project is Python 3, along with an extensive arra
         - Mean is greater than median shows its right skewed/ positive sekwed and contains outliers
 
 <img src="images/outliers.png" height="400">
-![Outliers](images/outliers.png =250x250)
 
 - As we can see above 3 visualizations in box plot "SALARY" column having outliers
 - Remove the outliers rows from the dataset, as there are only 5 rows out of 1 million datarows we can delete
@@ -44,14 +43,49 @@ The primary tool used for this project is Python 3, along with an extensive arra
 
 ## Correlation between 2 features to see corelation.
 
-1. Salary Vs JobType
+**1. Salary vs JobType**
 <img src="images/SalaryVSjobtype.png" width="400" height="400">
-
-![Salary Vs JobType](images/SalaryVSjobtype.png = 250x250)
 
 **Observation:**
 - Salary vs Job type : jobtype is highly correlated with salary.
 - As jobtype or position is increase salary is increase
+
+**2. Salary vs Degree**
+<img src="images/SalaryVsDegree.png" width="400" height="400">
+
+**Observation:**
+- Salary vs Degree: Degree is correlated with salary.
+- As degree is high salary is also high.
+- But, for bachelors, masters and doctoral, median salary is same.
+- It's true after several years in organisation and getting promoted to higher position salary increase.
+
+**3. Salary vs Majors**
+<img src="images/SalaryVsMajor.png" width="400" height="400">
+
+**Observation:**
+- Salary vs major: major is correlated with salary.
+- But, for business, engineering, CompsCi, maths salary is more.
+
+**4. Salary vs Industry**
+<img src="images/SalaryVsIndustry.png" width="400" height="400">
+**Observation:**
+- Salary vs Industry: Industry is correlated with salary.
+- Maximum salary have in Finance and Oil industry.
+
+**5. Salary vs YearsOfExperience**
+<img src="images/SalaryVsYOE.png" width="400" height="400">
+**Observation:**
+- Salary vs Years Experience: yearsExperience is correlated with salary.
+- As years of experience is more the salary is more, data match with real life scenarios.
+
+**6. Overall Correlation between features**
+<img src="images/Correlation.png" width="500" height="500">
+
+
+
+
+
+
 
 # DEVELOPMENT
 
